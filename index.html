@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="Stick-Go: un juego de plataformas 2D ligero para navegador.">
+  <title>Stick-Go — Aventura stickman</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Stick-Go inicio"><span class="brand-mark">S</span><span>STICK<span class="brand-accent">-GO</span></span></a>
+      <div class="top-actions">
+        <button id="soundButton" class="icon-button" type="button" aria-label="Activar o desactivar sonido" title="Sonido">♪</button>
+        <button id="pauseButton" class="icon-button" type="button" aria-label="Pausar" title="Pausar">Ⅱ</button>
+      </div>
+    </header>
+
+    <section class="game-wrap" aria-label="Juego Stick-Go">
+      <canvas id="game" aria-label="Juego de plataformas Stick-Go"></canvas>
+      <div class="game-overlay" id="overlay">
+        <div class="overlay-card">
+          <div class="eyebrow" id="overlayEyebrow">AVENTURA DE PLATAFORMAS</div>
+          <h1 id="overlayTitle">¡A correr,<br><span>stickman!</span></h1>
+          <p id="overlayText">Supera 50 niveles, esquiva enemigos y llega a la salida.</p>
+          <button id="startButton" class="primary-button" type="button">Jugar <span aria-hidden="true">→</span></button>
+          <div class="key-hint">PC: <kbd>A</kbd><kbd>D</kbd> mover · <kbd>W</kbd>/<kbd>↑</kbd> saltar · <kbd>Espacio</kbd> atacar</div>
+        </div>
+      </div>
+      <div class="level-toast" id="levelToast" aria-live="polite"></div>
+      <div class="mobile-controls" aria-label="Controles táctiles">
+        <div class="control-group move-group">
+          <div class="control-label">MOVER</div>
+          <div class="joystick" id="moveStick" aria-label="Joystick para moverse y saltar" role="application">
+            <div class="joy-ring"></div><div class="joy-knob" id="moveKnob"></div>
+            <span class="joy-arrow joy-up">▲</span><span class="joy-arrow joy-left">‹</span><span class="joy-arrow joy-right">›</span>
+          </div>
+        </div>
+        <div class="touch-buttons">
+          <button id="jumpButton" class="action-button jump-button" type="button" aria-label="Saltar">↑<small>SALTAR</small></button>
+        </div>
+        <div class="control-group attack-group">
+          <div class="control-label">ATACAR</div>
+          <button id="attackButton" class="joystick attack-stick" type="button" aria-label="Atacar">
+            <span class="attack-icon">✦</span><span class="attack-caption">GOLPE</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="statusbar">
+      <div class="status-item"><span class="status-dot"></span><span id="levelLabel">NIVEL 1 / 50</span></div>
+      <div class="progress-track"><div id="progressBar" class="progress-fill"></div></div>
+      <div class="status-item lives"><span aria-hidden="true">♥</span><span id="livesLabel">× 3</span></div>
+    </footer>
+    <p class="below-hint">Llega a la bandera para avanzar · Derrota enemigos con el botón de ataque</p>
+  </main>
+  <script src="game.js" defer></script>
+</body>
+</html>
